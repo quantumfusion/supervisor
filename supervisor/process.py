@@ -870,7 +870,7 @@ class EventListenerPool(ProcessGroupBase):
                     serial = event.serial
                     envelope = self._eventEnvelope(event_type, serial,
                                                    pool_serial, payload)
-                    process.write(as_bytes(envelope))
+                    process.write(as_string(envelope))
                 except OSError as why:
                     if why.args[0] != errno.EPIPE:
                         raise
